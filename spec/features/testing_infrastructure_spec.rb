@@ -1,7 +1,10 @@
 
 feature 'Testing infrastructure' do
-  scenario 'Can run app and check page content' do
+    scenario 'Larry enters his wicked ass name' do
     visit('/')
-    expect(page).to have_content "Testing infrastructure working"
+    fill_in 'name', with: 'Larry'
+    click_button('Submit')
+    expect(page).to have_content 'Larry'
   end
+
 end
