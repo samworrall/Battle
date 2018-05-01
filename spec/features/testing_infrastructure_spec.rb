@@ -9,4 +9,9 @@ feature 'Testing infrastructure' do
     expect(page).to have_content 'Judge Deathmun'
   end
 
+  scenario 'play screen displays HP' do
+    visit('/play')
+    expect(page).to have_content '100HP'
+  end
+
 end
