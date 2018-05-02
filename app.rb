@@ -19,19 +19,13 @@ class UBM < Sinatra::Base
     erb :play
   end
 
-  post '/p1attack' do
-    attack($game.player2)
+  post '/attack' do
+    attack
     redirect '/play'
   end
 
-  post '/p2attack' do
-    attack($game.player1)
-    redirect '/play'
-  end
-
-  def attack(player)
-    $game.attack(player)
-    session[:attack_message] = "POW! #{player.name} has been slapped!"
+  def attack
+    session[:attack_message] = $game.attack
   end
 
 end

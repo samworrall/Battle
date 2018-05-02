@@ -7,14 +7,8 @@
   <h2 id="p2_health" style="background:white"><%= $game.player2.health %>HP</h2>
   <h2 style="background:white"><%= @attack_message %></h2>
 
-  <form action='/p1attack' method='post'>
-    <h2 style="background:white">Player 1 Controls</h2>
-    <input type='submit' id='p1attack' value='Attack'>
+  <form action='/attack' method='post'>
+    <h2 style="background:white">Player Controls</h2>
+    <input type='submit' id='attack' value='Attack'>
   </form>
-
-  <form action='/p2attack' method='post'>
-    <h2 style="background:white">Player 2 Controls</h2>
-    <input type='submit' id='p2attack' value='Attack'>
-  </form>
-
 </body>
