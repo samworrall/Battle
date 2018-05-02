@@ -1,21 +1,19 @@
 <body style="color:red; fontsize:56px" background="https://omanali.weebly.com/uploads/2/5/7/2/25723270/1495093_orig.jpg" >
   <h1 style="background:white">Player 1 is playing as Battle legend:</h1>
-  <h2 style="background:white"><%= $player1.name %></h2>
-  <h2 id="p1_health" style="background:white"><%= $player1.health %>HP</h2>
+  <h2 style="background:white"><%= $game.player1.name %></h2>
+  <h2 id="p1_health" style="background:white"><%= $game.player1.health %>HP</h2>
   <h1 style="background:white">Player 2 is playing as Battle boi:</h1>
-  <h2 style="background:white"><%= $player2.name %></h2>
-  <h2 id="p2_health" style="background:white"><%= $player2.health %>HP</h2>
+  <h2 style="background:white"><%= $game.player2.name %></h2>
+  <h2 id="p2_health" style="background:white"><%= $game.player2.health %>HP</h2>
   <h2 style="background:white"><%= @attack_message %></h2>
 
-  <form action='/attack' method='post'>
+  <form action='/p1attack' method='post'>
     <h2 style="background:white">Player 1 Controls</h2>
-    <input type="hidden" name="attack_message" value="Player 1 has slapped Player 2!" />
     <input type='submit' id='p1attack' value='Attack'>
   </form>
 
-  <form action='/attack' method='post'>
+  <form action='/p2attack' method='post'>
     <h2 style="background:white">Player 2 Controls</h2>
-    <input type="hidden" name="attack_message" value="Player 2 has slapped Player 1!" />
     <input type='submit' id='p2attack' value='Attack'>
   </form>
 

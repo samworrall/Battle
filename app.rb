@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/player'
+require './lib/game'
 
 class UBM < Sinatra::Base
   enable :sessions
@@ -9,8 +10,7 @@ class UBM < Sinatra::Base
   end
 
   post '/names' do
-    $player1 = Player.new(params[:player1])
-    $player2 = Player.new(params[:player2])
+    $game = Game.new(Player.new(params[:player1]), Player.new(params[:player2]))
     redirect '/play'
   end
 
@@ -19,10 +19,19 @@ class UBM < Sinatra::Base
     erb :play
   end
 
-  post '/attack' do
-    session[:attack_message] = params[:attack_message]
-    session[:attack_message] == "Player 1 has slapped Player 2!" ? $player2.hurt : $player1.hurt
+  post '/p1attack' do
+    attack($game.player2)
     redirect '/play'
+  end
+
+  post '/p2attack' do
+    attack($game.player1)
+    redirect '/play'
+  end
+
+  def attack(player)
+    $game.attack(player)
+    session[:attack_message] = "POW! #{player.name} has been slapped!"
   end
 
 end
