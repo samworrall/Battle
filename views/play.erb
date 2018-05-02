@@ -5,4 +5,10 @@
   <h1 style="background:white">Player 2 is playing as Battle boi:</h1>
   <h2 style="background:white"><%= @player2 %></h2>
   <h2 style="background:white"> <%= @p2_health %>HP <h2>
+  <h2><%= @attack_message %></h2>
+
+  <form action='/attack' method='post'>
+    <input type='submit' value='Attack'>
+  </form>
+
 </body>
