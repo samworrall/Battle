@@ -26,10 +26,16 @@ feature 'Testing battle mechanics' do
     expect(page).to have_content 'Player 2 has slapped Player 1!'
   end
 
-  # scenario 'When attacked, Player 2 health reduced by 2' do
-  #   sign_in_and_play
-  #   click_button('p1attack')
-  #   expect(page).to have_content '98HP'
-  # end
+  scenario 'When attacked, Player 2 health reduced by 2' do
+    sign_in_and_play
+    click_button('p1attack')
+    expect(page.find('h2', id: 'p2_health').text).to eq "98HP"
+  end
+
+  scenario 'When attacked, Player 1s health is reduced by 2' do
+    sign_in_and_play
+    click_button('p2attack')
+    expect(page.find('h2', id: 'p1_health').text).to eq "98HP"
+  end
 
 end
