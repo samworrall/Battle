@@ -5,9 +5,17 @@
   <h1 style="background:white">Player 2 is playing as Battle boi:</h1>
   <h2 style="background:white"><%= @player2 %></h2>
   <h2 style="background:white"> <%= @p2_health %>HP <h2>
-  <h2><%= @attack_message %></h2>
+  <h2 style="background:white"><%= @attack_message %></h2>
 
   <form action='/attack' method='post'>
+    <h2 style="background:white">Player 1 Controls</h2>
+    <input type="hidden" name="attack_message" value="Player 1 attacks Player 2" />
+    <input type='submit' value='Attack'>
+  </form>
+
+  <form action='/attack' method='post'>
+    <h2 style="background:white">Player 2 Controls</h2>
+    <input type="hidden" name="attack_message" value="Player 2 attacks Player 1" />
     <input type='submit' value='Attack'>
   </form>
 

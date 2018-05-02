@@ -23,7 +23,7 @@ class UBM < Sinatra::Base
   end
 
   post '/attack' do
-    session[:attack_message] = 'Player 1 has slapped Player 2!'
+    session[:attack_message] = params[:attack_message]
     redirect '/play'
   end
 
