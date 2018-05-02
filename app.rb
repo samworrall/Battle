@@ -21,11 +21,7 @@ class UBM < Sinatra::Base
 
   post '/attack' do
     session[:attack_message] = params[:attack_message]
-    if session[:attack_message] == "Player 1 has slapped Player 2!"
-      $player2.hurt
-    else
-      $player1.hurt
-    end
+    session[:attack_message] == "Player 1 has slapped Player 2!" ? $player2.hurt : $player1.hurt
     redirect '/play'
   end
 
