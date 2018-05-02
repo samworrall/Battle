@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'player'
 
 class UBM < Sinatra::Base
   enable :sessions
@@ -8,14 +9,12 @@ class UBM < Sinatra::Base
   end
 
   post '/names' do
-    session[:player1] = params[:player1]
-    session[:player2] = params[:player2]
+    $player1 = Player.new(params[:player1])
+    $player2 = Player.new(params[:player2])
     redirect '/play'
   end
 
   get '/play' do
-    @player1 = session[:player1]
-    @player2 = session[:player2]
     @p1_health = 100
     @p2_health = 100
     @attack_message = session[:attack_message]
